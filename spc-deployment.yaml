@@ -8,7 +8,7 @@
     app_jar_url: https://referenceapplicationskhaja.s3-us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
     app_file_name: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
     app_user_name: springbootuser
-    test_var : just for testing
+    #test_var : just for testing
   tasks:
     - name: Display Java package
       debug:
