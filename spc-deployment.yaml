@@ -21,3 +21,9 @@
         name: springbootuser
         password: 1234567
         state: present
+    - name: Change OwnerShip of Jar File Clinic
+      file:
+        path: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+        owner: springbootuser
+        mode: '500'
+        state: file
