@@ -21,16 +21,12 @@
         name: "{{ java_package }}"
         update_cache: yes
         state: present
-    - name: debug msg for java
-      debug:
-        msg: "java with package {{ java_package }} is installed"
+      notify:  debug msg for java
     - name: Create Spring Pet Clinic Directory
       file:
         path: "{{ appdir }}"
         state: directory
-    - name: debug msg for Directory
-      debug:
-        msg: "Pet Clinic  Directory is created at {{ appdir }}"
+      notify: debug msg for Directory
     - name: Download spring-petclinic jar file
       get_url:
             url: "{{ app_jar_url }}"
@@ -55,3 +51,10 @@
         name: springpetclinic.service
         enabled: yes
         state: started
+  handlers:
+    - name: debug msg for java
+      debug:
+        msg: "java with package {{ java_package }} is installed"
+    - name: debug msg for Directory
+      debug:
+        msg: "Pet Clinic  Directory is created at {{ appdir }}"
