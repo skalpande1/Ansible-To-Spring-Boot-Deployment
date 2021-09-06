@@ -1,2 +1,7 @@
 ---
-test_var1 : group variables
+java_package: openjdk-11-jdk
+appdir: /usr/share/springpetclinic
+app_jar_url: https://referenceapplicationskhaja.s3-us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
+app_file_name: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+app_user_name: springbootuser
+#test_var : just for testing

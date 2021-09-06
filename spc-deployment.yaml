@@ -2,23 +2,16 @@
 - name: Deploy spring Pet Clinic on Linux VM
   hosts: appserver
   become: yes
-  vars: 
-    java_package: openjdk-11-jdk
-    appdir: /usr/share/springpetclinic
-    app_jar_url: https://referenceapplicationskhaja.s3-us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
-    app_file_name: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
-    app_user_name: springbootuser
-    #test_var : just for testing
   tasks:
-    - name: Display Java package
-      debug:
-        var: java_package
-    - name: Checking variables var1
-      debug:
-        var: test_var1
-    - name: Checking variables var2
-      debug:
-        var: test_var2
+    # - name: Display Java package
+    #   debug:
+    #     var: java_package
+    # - name: Checking variables var1
+    #   debug:
+    #     var: test_var1
+    # - name: Checking variables var2
+    #   debug:
+    #     var: test_var2
     - name: Update ubuntu packages And install Open Jdk Java
       apt:
         name: "{{ java_package }}"
