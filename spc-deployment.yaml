@@ -12,10 +12,10 @@
     # - name: Checking variables var2
     #   debug:
     #     var: test_var2
-    - name: fail the distribution if os is other than ubuntu
+    - name: fail the distribution if os is other than ubuntu and centos
       fail:
         msg: "this playbook will work only on ubuntu for other os  support will added soon "
-      when: ansible_distribution != "Ubuntu"
+      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != "CentOS"
     - name: Update ubuntu packages And install Open Jdk Java
       apt:
         name: "{{ java_package }}"
@@ -57,7 +57,7 @@
     - name: debug msg for java
       debug:
         msg: "java with package {{ java_package }} is installed"
-        
+
     - name: debug msg for Directory
       debug:
         msg: "Pet Clinic  Directory is created at {{ appdir }}"
