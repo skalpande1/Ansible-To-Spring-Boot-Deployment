@@ -15,7 +15,7 @@
     - name: fail the distribution if os is other than ubuntu
       fail:
         msg: "this playbook will work only on ubuntu for other os  support will added soon "
-        when: ansible_distribution != "Ubuntu"
+      when: ansible_distribution != "Ubuntu"
     - name: Update ubuntu packages And install Open Jdk Java
       apt:
         name: "{{ java_package }}"
