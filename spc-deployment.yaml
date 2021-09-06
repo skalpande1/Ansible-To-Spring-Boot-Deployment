@@ -22,6 +22,12 @@
         update_cache: yes
         state: present
       notify:  debug msg for java
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: install Open Jdk Java On CentOs
+      yum:
+        name: "{{ java_package }}"
+        state: present
+      when: ansible_facts['distribution'] == "CentOS"
     - name: Create Spring Pet Clinic Directory
       file:
         path: "{{ appdir }}"
