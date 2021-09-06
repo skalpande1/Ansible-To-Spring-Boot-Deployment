@@ -30,7 +30,7 @@
     #   when: ansible_facts['distribution'] == "CentOS"
     - name : install java
       package:
-        name: {{ java_package }}
+        name: "{{ java_package }}"
         state: present
     - name: Create Spring Pet Clinic Directory
       file:
