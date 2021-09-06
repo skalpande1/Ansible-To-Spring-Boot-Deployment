@@ -36,12 +36,7 @@
         name: "{{ app_user_name }}"
         password: 1234567
         state: present
-    - name: Change OwnerShip of Jar File Clinic
-      file:
-        path: "{{ app_file_name }}"
-        owner: "{{ app_user_name }}"
-        mode: '500'
-        state: file
+      notify: Change OwnerShip of Jar File Clinic
     - name: Copy file 'springpetclinic.service'
       copy:
         dest: /etc/systemd/system/springpetclinic.service
@@ -52,9 +47,17 @@
         enabled: yes
         state: started
   handlers:
+    - name: Change OwnerShip of Jar File Clinic
+      file:
+        path: "{{ app_file_name }}"
+        owner: "{{ app_user_name }}"
+        mode: '500'
+        state: file
+
     - name: debug msg for java
       debug:
         msg: "java with package {{ java_package }} is installed"
+        
     - name: debug msg for Directory
       debug:
         msg: "Pet Clinic  Directory is created at {{ appdir }}"
