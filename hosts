@@ -6,7 +6,8 @@ localhost
 172.31.40.175
 
 [appserver]
-172.31.38.65  test_var=fromInventories
+172.31.38.65
+172.31.40.175
 
 [dbserver]
 172.31.40.175
