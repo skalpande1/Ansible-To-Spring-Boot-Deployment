@@ -16,18 +16,22 @@
       fail:
         msg: "this playbook will work only on ubuntu for other os  support will added soon "
       when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != "CentOS"
-    - name: Update ubuntu packages And install Open Jdk Java
-      apt:
-        name: "{{ java_package }}"
-        update_cache: yes
+    # - name: Update ubuntu packages And install Open Jdk Java
+    #   apt:
+    #     name: "{{ java_package }}"
+    #     update_cache: yes
+    #     state: present
+    #   notify:  debug msg for java
+    #   when: ansible_facts['distribution'] == "Ubuntu"
+    # - name: install Open Jdk Java On CentOs
+    #   yum:
+    #     name: "{{ java_package }}"
+    #     state: present
+    #   when: ansible_facts['distribution'] == "CentOS"
+    - name : install java
+      package:
+        name: {{ java_package }}
         state: present
-      notify:  debug msg for java
-      when: ansible_facts['distribution'] == "Ubuntu"
-    - name: install Open Jdk Java On CentOs
-      yum:
-        name: "{{ java_package }}"
-        state: present
-      when: ansible_facts['distribution'] == "CentOS"
     - name: Create Spring Pet Clinic Directory
       file:
         path: "{{ appdir }}"
